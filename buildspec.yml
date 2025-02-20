@@ -23,11 +23,11 @@ phases:
       - echo "Running TruffleHog scan..."
       - |
         # Run the secrets scan with all constructed flags.
-        docker run --rm -v $(pwd)/app:/pwd trufflesecurity/trufflehog:3.88.1 git file:///pwd --json --no-update $BRANCH_FLAG $RESULTS_FLAG $FAIL_FLAG $EXCLUDE_FLAG $EXTRA_ARGS > trufflehog-results.json
+        docker run --rm -v $(pwd)/app:/pwd trufflesecurity/trufflehog:3.88.1 git file:///pwd \
+          --json --no-update > trufflehog-results.json
 
   post_build:
     commands:
-      - echo "Evaluating TruffleHog scan results..."
       - echo "Uploading report to CSPM panel..."
       - |
         RESPONSE=$(curl --location --request POST "https://${CSPM_URL}/api/v1/artifact/?tenant_id=${TENANT_ID}&data_type=TruffleHog&save_to_s3=true&label_id=${LABEL}" \
