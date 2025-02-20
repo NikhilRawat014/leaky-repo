@@ -37,8 +37,7 @@ phases:
           --header "Tenant-Id: ${TENANT_ID}" \
           --header "Authorization: Bearer ${AK_TOKEN}" \
           --form "file=@$(pwd)/trufflehog-results.json")
-        
-
+        echo "Server response: $RESPONSE"
 artifacts:
   files:
     - trufflehog-results.json
