@@ -9,7 +9,7 @@ env:
     TARGET_REPO: "https://github.com/NikhilRawat014/leaky-repo"
     BRANCH: "master"
   secrets-manager:
-    AK_TOKEN: "AccuKnoxAPIToken"
+    AK_TOKEN: "AccuKnoxAPIToken:AccuKnoxAPIToken"
 
 phases:
   pre_build:
