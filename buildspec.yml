@@ -2,14 +2,14 @@ version: 0.2
 env:
   variables:
     # CSPM settings
-    CSPM_URL: "cspm.demo.accuknox.com"
-    TENANT_ID: "3730"
+    CSPM_URL: "cspm.stage.accuknox.com"
+    TENANT_ID: "4"
     LABEL: "SASTSEMGREP"
     # Repository to scan and branch details
     TARGET_REPO: "https://github.com/NikhilRawat014/leaky-repo"
     BRANCH: "semgrep-sast"
   secrets-manager:
-    AK_TOKEN: "AccuKnoxAPIToken:AccuKnoxAPIToken"
+    AK_TOKEN: "AccuKnoxSASTToken:AccuKnoxSASTToken"
 
 phases:
   pre_build:
