@@ -23,7 +23,7 @@ phases:
       - echo "Running Semgrep scan..."
       - |
         # Run the secrets scan with all constructed flags.
-        docker run --rm -v $(pwd)/app:/src returntocorp/semgrep semgrep --config=auto --json > semgrep-results.json
+        docker run --rm -v $(pwd)/app:/src returntocorp/semgrep semgrep scan --config=auto --json > semgrep-results.json
 
   post_build:
     commands:
