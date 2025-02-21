@@ -23,8 +23,7 @@ phases:
       - echo "Running Semgrep scan..."
       - |
         # Run the secrets scan with all constructed flags.
-        docker run --rm -v $(pwd)/app:/pwd trufflesecurity/trufflehog:3.88.1 git file:///pwd \
-          --json --no-update > semgrep-results.json
+        docker run --rm -v $(pwd)/app:/src returntocorp/semgrep semgrep --config=auto --json > semgrep-results.json
 
   post_build:
     commands:
